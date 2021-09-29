@@ -1,7 +1,5 @@
 package com.wizhuo.dalgorithm.sort;
 
-import com.sun.tools.javac.util.Assert;
-
 import java.util.Random;
 
 /**
@@ -12,7 +10,7 @@ import java.util.Random;
  * merge 的时间复杂度O(n)
  * 相乘 O(nlogn)
  * <p>
- * 空间复杂度应该是O(n) merge 的时候
+ * 空间复杂度是O(n) merge 的时候
  *
  * @author willJo
  * @since 2021/9/29
