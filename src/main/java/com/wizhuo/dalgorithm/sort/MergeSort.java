@@ -1,9 +1,18 @@
 package com.wizhuo.dalgorithm.sort;
 
+import com.sun.tools.javac.util.Assert;
+
 import java.util.Random;
 
 /**
  * 归并算法
+ * <p>
+ * 时间复杂度 O(nlogn)
+ * 每一个小sort 的时间复杂度O(logn)
+ * merge 的时间复杂度O(n)
+ * 相乘 O(nlogn)
+ * <p>
+ * 空间复杂度应该是O(n) merge 的时候
  *
  * @author willJo
  * @since 2021/9/29
@@ -13,10 +22,10 @@ public class MergeSort {
     public static void main(String[] args) {
 
         Random random = new Random();
-        int n = 8;
+        int n = 100;
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
-            a[i] = random.nextInt(100) % 100;
+            a[i] = random.nextInt(100);
         }
         for (int i = 0; i < n; i++) {
             System.out.print(a[i]);
@@ -30,6 +39,7 @@ public class MergeSort {
         for (int i = 0; i < n; i++) {
             System.out.print(a[i]);
             System.out.print(" ");
+
         }
     }
 
@@ -62,7 +72,7 @@ public class MergeSort {
             } else if (j > high) {
                 // 如果b 数组已经用完了，直接用a 数组
                 aux[k] = a[i++];
-            } else if (less(a[i], a[j])) {
+            } else if (less(a, i, j)) {
                 // 两个数组取值最小的那个
                 aux[k] = a[i++];
             } else {
@@ -81,8 +91,8 @@ public class MergeSort {
 
     }
 
-    public boolean less(int i, int j) {
-        return i < j;
+    public boolean less(int[] a, int i, int j) {
+        return a[i] < a[j];
     }
 
     /**
